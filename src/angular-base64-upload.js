@@ -62,7 +62,7 @@
               var buffer = e.target.result;
               var promise;
 
-              fileObject.base64 = $window._arrayBufferToBase64(buffer);
+              fileObject = $window._arrayBufferToBase64(buffer);
 
               if (attrs.parser) {
                 promise = $q.when(scope.parser()(file, fileObject));
@@ -122,10 +122,6 @@
               var reader = new $window.FileReader();
               var file = rawFiles[i];
               var fileObject = {};
-
-              fileObject.filetype = file.type;
-              fileObject.filename = file.name;
-              fileObject.filesize = file.size;
 
               _attachEventHandlers(reader, file, fileObject);
 
